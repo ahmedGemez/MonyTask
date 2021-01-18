@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_nav"
+    app:startDestination="@id/homeFragment">
+
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.money.features.budgets.BudgetsFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_budgets" >
+        <action
+            android:id="@+id/action_homeFragment_to_budgetDetailsFragment"
+            app:destination="@id/budgetDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/budgetDetailsFragment"
+        android:name="com.example.money.features.budgetdetails.BudgetDetailsFragment"
+        android:label="fragment_budget_details"
+        tools:layout="@layout/fragment_budget_details" >
+        <argument
+            android:name="BudgetId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_budgetDetailsFragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+        <action
+            android:id="@+id/action_budgetDetailsFragment_to_payeeTransactionsFragment"
+            app:destination="@id/payeeTransactionsFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.example.money.features.createaccount.CreateAccountFragment"
+        android:label="fragment_create_account"
+        tools:layout="@layout/fragment_create_account"
+        >
+        <argument
+            android:name="BudgetId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/payeeTransactionsFragment"
+        android:name="com.example.money.features.payeetransactions.PayeeTransactionsFragment"
+        android:label="PayeeTransactionsFragment" >
+        <argument
+            android:name="budgetId"
+            app:argType="string" />
+        <argument
+            android:name="transfer_payee_id"
+            app:argType="string" />
+
+    </fragment>
+</navigation>

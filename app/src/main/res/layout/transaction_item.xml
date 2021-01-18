@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.widget.CompoundButton" />
+        <variable
+            name="transaction"
+            type="com.example.domain.models.payeetransactions.Transaction" />
+        <variable
+            name="viewmodel"
+            type="com.example.money.features.payeetransactions.PayeeTransactionsViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:id="@+id/envolope_card"
+        android:layout_weight="1"
+        android:checkable="true"
+        app:cardBackgroundColor="@color/white"
+        app:cardElevation="5dp"
+        app:checkedIconTint="@color/white">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            >
+
+            <TextView
+                android:id="@+id/name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="8dp"
+                android:text="@string/bayee_name"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/type_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="8dp"
+                android:text="@string/bayee_account_name"
+                app:layout_constraintTop_toBottomOf="@+id/name_tv" />
+
+            <TextView
+                android:id="@+id/balance_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="8dp"
+                android:text="@string/category_name"
+                app:layout_constraintTop_toBottomOf="@+id/type_tv" />
+
+            <TextView
+                android:id="@+id/name_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="8dp"
+                android:text="@{transaction.payeeName}"
+                app:layout_constraintBottom_toBottomOf="@+id/name_tv"
+                app:layout_constraintStart_toEndOf="@+id/name_tv"
+                app:layout_constraintTop_toTopOf="@+id/name_tv" />
+
+
+            <TextView
+                android:id="@+id/type_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="8dp"
+                android:text="@{transaction.accountName}"
+                app:layout_constraintBottom_toBottomOf="@+id/type_tv"
+                app:layout_constraintStart_toEndOf="@+id/type_tv"
+                app:layout_constraintTop_toTopOf="@+id/type_tv" />
+            <TextView
+                android:id="@+id/balance_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="8dp"
+                android:inputType="number"
+                android:text="@{transaction.categoryName}"
+                app:layout_constraintBottom_toBottomOf="@+id/balance_tv"
+                app:layout_constraintStart_toEndOf="@+id/balance_tv"
+                app:layout_constraintTop_toTopOf="@+id/balance_tv" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>
